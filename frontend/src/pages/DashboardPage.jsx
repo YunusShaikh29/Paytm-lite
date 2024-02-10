@@ -30,7 +30,11 @@ export default DashboardPage;
 export const loadData = async () => {
   const token = getAuthToken();
 
-  const response = await fetch("http://localhost:7070/api/v1/user/all_users", {
+  // api/v1/user/bulk
+  const api = import.meta.env.VITE_BASEURL
+  console.log(api)
+
+  const response = await fetch(api + "api/v1/user/all_users", {
     method: "GET",
     headers: {
       authorization: `Bearer ${token}`,

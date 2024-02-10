@@ -18,5 +18,5 @@ app.use((req, res, next) => {
 app.use("/api/v1", rootRouter)
 
 app.listen(PORT, () => {
-    console.log(`server listening on port: ${PORT}`)
+    console.log(`server listening`)
 })

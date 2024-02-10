@@ -19,7 +19,9 @@ export const action = async({request}) => {
         password: data.get("password")
     }
 
-    const response = await fetch("http://localhost:7070/api/v1/user/signin", {
+    const api = import.meta.env.VITE_BASEURL
+
+    const response = await fetch(api + "api/v1/user/signin", {
     method: "post",
     headers: {
       "Content-Type": "application/json",

@@ -22,10 +22,11 @@ function Dashboard({ users, user, balance }) {
     .charAt(0)
     .toUpperCase()}${user.lastName.slice(1)}`;
 
+    const api = import.meta.env.VITE_BASEURL
 
   useEffect(() => {
     axios
-      .get(`http://localhost:7070/api/v1/user/bulk?filter=${debouncedFilter}`)
+      .get(`${api}api/v1/user/bulk?filter=${debouncedFilter}`)
       .then((response) => {
         if (filter.length === 0) {
           setUsersArr(users);
@@ -33,7 +34,7 @@ function Dashboard({ users, user, balance }) {
           setUsersArr(response.data.user);
         }
       });
-  }, [filter, debouncedFilter, users]);
+  }, [filter, debouncedFilter, users, api]);
 
 
   return (

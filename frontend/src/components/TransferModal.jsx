@@ -64,8 +64,10 @@ export const action = async ({ request }) => {
 
   const amount = data.get("amount");
 
+  const api = import.meta.env.VITE_BASEURL
+
   const response = await axios.post(
-    "http://localhost:7070/api/v1/account/transfer",
+    api + "api/v1/account/transfer",
     { to: id, amount: amount },
     { headers: { Authorization: `Bearer ${token}` } }
   );

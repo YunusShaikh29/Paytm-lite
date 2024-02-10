@@ -20,7 +20,9 @@ const action = async ({ request }) => {
 
   console.log(JSON.stringify(authData))
 
-  const response = await fetch("http://localhost:7070/api/v1/user/signup", {
+  const api = import.meta.env.VITE_BASEURL
+
+  const response = await fetch(api + "api/v1/user/signup", {
     method: "post",
     headers: {
       "Content-Type": "application/json",
