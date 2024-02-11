@@ -50,7 +50,7 @@ function SignIn() {
         <div className="text-[.9rem] text-center">
           Don't have an account?{" "}
           <Link to="/signup" className="underline">
-            Sing Up
+            Sign Up
           </Link>
         </div>
       </Form>
