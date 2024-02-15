@@ -6,6 +6,7 @@ import signupAction from "./pages/SignupPage"
 import SigninPage, {action as signinAction} from "./pages/SigninPage";
 import DashboardPage, {loader as dashboardData} from "./pages/DashboardPage";
 import TransferModal, {action as TransferAction } from "./components/TransferModal";
+import UserInfo from "./pages/UserInfo";
 
 function App() {
   const router = createBrowserRouter([
@@ -25,7 +26,8 @@ function App() {
       path: "/transfer",
       element: <TransferModal />,
       action: TransferAction
-    }
+    },
+    {path: "/userinfo", element: <UserInfo />}
   ]);
 
   return (
