@@ -67,7 +67,7 @@ function Dashboard({ users, user, balance }) {
         />
         <div className="my-8">
           {/* <UserList users={usersArr} /> */}
-          {usersArr.map((user) => <User user={user} userId={user._id}/>)}
+          {usersArr.map((user) => <User user={user} userId={user._id} key={user._id}/>)}
         </div>
       </div>
     </div>

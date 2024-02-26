@@ -7,13 +7,13 @@ function PageContent({ title, children, status }) {
   };
 
   return (
-    <div className="h-[100vh] flex justify-center items-center">
-      <div className="text-center text-2xl relative">
-        <h1 className="text-[10rem] md:text-[75vh] text-zinc-800 select-none absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10">
+    <div className="h-screen flex justify-center items-center">
+      <div className="text-center relative">
+        <h1 className="text-[35vh] md:text-[75vh] text-zinc-800 select-none absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10">
           {status}
         </h1>
-        <h2 className="text-zinc-300 text-5xl mb-2">{title}</h2>
-        <div className="text-zinc-300 text-4xl mb-4">{children}</div>
+        <h2 className="text-3xl text-zinc-300 md:text-5xl mb-2">{title}</h2>
+        <div className="text-2xl text-zinc-300 md:text-4xl mb-4">{children}</div>
         <button
           onClick={handleGoBack}
           className="bg-slate-700 hover:bg-slate-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"

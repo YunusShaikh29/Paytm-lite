@@ -23,12 +23,13 @@ function App() {
       path: "/dashboard",
       element: <DashboardPage />,
       loader: dashboardData,
-      
+      errorElement: <ErrorPage />
     },
     {
       path: "/transfer",
       element: <TransferModal />,
-      action: TransferAction
+      action: TransferAction,
+      errorElement: <ErrorPage />
     },
     {path: "/userinfo", element: <UserInfo />}
   ]);
