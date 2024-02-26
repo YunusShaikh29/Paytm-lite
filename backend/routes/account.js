@@ -32,6 +32,14 @@ router.post("/transfer", authMiddleware, async (req, res) => {
     });
   }
 
+  if(amount === 0 || amount < 0){
+    session.abortTransaction()
+    return res.status(400).json({
+      error: "Invalid amout!",
+      message: "Amount cannot be 0 or negative. Try again with valid amount!"
+    })
+  }
+
   const toAccount = await Account.findOne({
     userId: to,
   });
