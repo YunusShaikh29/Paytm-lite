@@ -33,19 +33,19 @@ router.post("/transfer", authMiddleware, async (req, res) => {
   });
 
   if (!account || account.balance < amount) {
-    session.abortTransaction();
-    return res.status(400).json({
+     res.status(400).json({
       title: "Insufficient balance",
       message: "You don't have enough balance. Try again later!",
     });
+    return session.abortTransaction();
   }
 
   if(amount === 0 || amount < 0){
-    session.abortTransaction()
-    return res.status(400).json({
+     res.status(400).json({
       title: "Invalid amout!",
       message: "Amount cannot be 0 or negative. Try again with valid amount!"
     })
+    return session.abortTransaction()
   }
 
   const toAccount = await Account.findOne({
@@ -53,11 +53,11 @@ router.post("/transfer", authMiddleware, async (req, res) => {
   });
 
   if (!toAccount) {
-    session.abortTransaction();
-    return res.status(400).json({
+     res.status(400).json({
       title: "Invalid account",
       message: "The user you're trying to send money does not exist, try again later!",
     });
+    return session.abortTransaction();
   }
 
   await Account.updateOne(
