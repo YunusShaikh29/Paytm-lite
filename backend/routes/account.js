@@ -10,6 +10,13 @@ router.get("/balance", authMiddleware, async (req, res) => {
     userId: req.userId,
   });
 
+  if(!account){
+    return res.status(404).json({
+      title: "Invalid user",
+      message: "Cannot find user!"
+    })
+  }
+
   res.json({
     balance: account.balance,
   });
@@ -28,14 +35,15 @@ router.post("/transfer", authMiddleware, async (req, res) => {
   if (!account || account.balance < amount) {
     session.abortTransaction();
     return res.status(400).json({
-      message: "Insufficient balance.",
+      title: "Insufficient balance",
+      message: "You don't have enough balance. Try again later!",
     });
   }
 
   if(amount === 0 || amount < 0){
     session.abortTransaction()
     return res.status(400).json({
-      error: "Invalid amout!",
+      title: "Invalid amout!",
       message: "Amount cannot be 0 or negative. Try again with valid amount!"
     })
   }
@@ -47,7 +55,8 @@ router.post("/transfer", authMiddleware, async (req, res) => {
   if (!toAccount) {
     session.abortTransaction();
     return res.status(400).json({
-      message: "Invalid account.",
+      title: "Invalid account",
+      message: "The user you're trying to send money does not exist, try again later!",
     });
   }
 
