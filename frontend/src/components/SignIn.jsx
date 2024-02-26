@@ -1,7 +1,10 @@
 import React from 'react'
-import { Link, Form } from 'react-router-dom'
+import { Link, Form, useNavigation } from 'react-router-dom'
 
 function SignIn() {
+  const navigation = useNavigation()
+  const isSubmitting = navigation.state === "submitting"
+
   return (
     <div className="flex items-center justify-center h-screen">
     <div className="max-w-[20rem] mx-auto bg-white p-6 rounded-md shadow-md">
@@ -40,12 +43,13 @@ function SignIn() {
           />
         </div>
         <div>
-          <button
-            type="submit"
-            className="w-full bg-black text-white py-2 px-2 rounded-md hover:bg-gray-900"
-          >
-            Sign In
-          </button>
+        <button
+              type="submit"
+                className="w-full bg-black text-white py-2 px-2 rounded-md hover:bg-gray-900 font-[600]" 
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Submitting...": "Sign In"}
+              </button>
         </div>
         <div className="text-[.9rem] text-center">
           Don't have an account?{" "}

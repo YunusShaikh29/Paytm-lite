@@ -8,7 +8,7 @@ function UserIcon({ user}) {
   // setUserName(userNameAlphabets)
 
   return (
-    <div className="w-[2.5rem] h-[2.5rem] rounded-full bg-gray-200 text-[1.2rem] flex justify-center items-center font-[400] text-black">
+    <div className="w-[2.5rem] h-[2.5rem] rounded-full bg-gray-200 text-[1.2rem] flex justify-center items-center text-black font-[600]">
       {userNameAlphabets}
     </div>
   );

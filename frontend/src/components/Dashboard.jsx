@@ -4,7 +4,7 @@ import UserIcon from "./User/UserIcon";
 import UserList from "./User/UserList";
 import { getAuthToken } from "../util/Auth";
 import useDebounce from "../Hooks/Debounce";
-import { Form } from "react-router-dom";
+import { Form, useNavigate } from "react-router-dom";
 import axios from "axios";
 import User from "./User/User";
 // import e from "express";
@@ -15,6 +15,7 @@ function Dashboard({ users, user, balance }) {
   const [usersArr, setUsersArr] = useState([]);
   const [filter, setFilter] = useState("");
   const debouncedFilter = useDebounce(filter, 500);
+  const navigate = useNavigate()
 
   const combinedName = `${user.firstName
     .charAt(0)
@@ -37,13 +38,17 @@ function Dashboard({ users, user, balance }) {
   }, [filter, debouncedFilter, users, api]);
 
 
+  const onClick = () => {
+    navigate(`/userinfo?id=${user._id}`)
+  }
+
   return (
     <div className="container">
       <div className="w-full px-8 py-4">
         <div className="w-full flex justify-between mb-6">
           <h1 className="text-white text-4xl font-[700]">Payment App</h1>
           <div className="text-white text-2xl font-[400] flex justify-between gap-4 items-center">
-            Hello, {combinedName} <UserIcon user={combinedName} />
+            Hello, {combinedName} <button onClick={onClick}><UserIcon user={combinedName} /></button>
           </div>
         </div>
         <p className="border-b-2 border-slate-800"></p>

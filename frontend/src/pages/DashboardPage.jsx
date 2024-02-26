@@ -10,8 +10,8 @@ function DashboardPage() {
   // const {users, user, balance} = data
 
   return (
-    <Suspense>
-      <Await resolve={data}>
+    <Suspense fallback={<p style={{textAlign: "center", color: "white", fontSize: "1.8rem"}}>Loading🔃...</p>}>
+      <Await resolve={data} >
         {(data) => (
           <Dashboard
             users={data.users}
