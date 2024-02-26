@@ -5,6 +5,7 @@ import PageContent from '../components/PageContent';
 
 function ErrorPage() {
   const error = useRouteError();
+  
 
   let title = 'An error occurred!';
   let message = 'Something went wrong. Try again later!';
@@ -25,8 +26,8 @@ function ErrorPage() {
 
   return (
     <>
-      <PageContent title={title} status={error.status}>
-        <p>{error.message}</p>
+      <PageContent title={error.data.title} status={error.status}>
+        <p>{error.data.message}</p>
       </PageContent>
     </>
   );
