@@ -26,7 +26,7 @@ function ErrorPage() {
   return (
     <>
       <PageContent title={title} status={error.status}>
-        <p>{message}</p>
+        <p>{error.message}</p>
       </PageContent>
     </>
   );
