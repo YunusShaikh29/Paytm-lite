@@ -9,7 +9,7 @@ function PageContent({ title, children, status }) {
   return (
     <div className="h-[100vh] flex justify-center items-center">
       <div className="text-center text-2xl relative">
-        <h1 className="text-[75vh] text-zinc-800 select-none absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10">
+        <h1 className="text-[10rem] md:text-[75vh] text-zinc-800 select-none absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10">
           {status}
         </h1>
         <h2 className="text-zinc-300 text-5xl mb-2">{title}</h2>
