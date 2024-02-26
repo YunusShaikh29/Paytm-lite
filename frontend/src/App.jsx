@@ -28,8 +28,8 @@ function App() {
     {
       path: "/transfer",
       element: <TransferModal />,
+      errorElement: <ErrorPage />,
       action: TransferAction,
-      errorElement: <ErrorPage />
     },
     {path: "/userinfo", element: <UserInfo />}
   ]);
